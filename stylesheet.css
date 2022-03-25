@@ -1,0 +1,25 @@
+body{
+    background-color: tan;
+    width: 90%;
+}
+
+/* #title{
+    float:left;
+    text-align: center;
+} */
+
+#header{
+    background-color:blanchedalmond;
+    padding:20 px;
+}
+
+#link{
+    display:block;
+    float:left;
+    background-color: red;
+    color:white;
+    width:200px;
+    height:100px;
+    text-align:center;
+    padding:50px;
+}
