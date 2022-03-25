@@ -18,6 +18,15 @@ function gameStart(){
     startTimer();
 }
 
-function startTimer(){
+var myTimer;
+var duration = 3000;
 
+function startTimer(){
+    myTimer = setInterval('displayTimer()', 1000);
+    displayTimer();
+}
+
+function displayTimer(){
+    duration--;
+    document.getElementById('timer').innerHTML = duration;
 }
