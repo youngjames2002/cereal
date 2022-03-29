@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>THE CEREAL GAME</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+</head>
+
+<body onload="gameStart()">
+    <div id="header">
+        <h1 id="title">THE CEREAL GAME</h1>
+    </div>
+    <div id="game">
+        <span id="timer"></span> <br>
+        <h2> Please note you must press the button to submit, do not click enter</h2>
+        <span id="message"></span>
+        <form>
+            <label for="entry">WHAT DO YOU WANT TO DO?</label>
+            <input type="text" id="entry" name="entry">
+            <input type="button" value="SUBMIT" onclick="textEntered()">
+        </form>
+        <img src="kitchen.jpg" alt="kitchen" style="display:none;" id="kitchenPic">
+    </div>
+    <div id="failure" style="visibility:hidden;">
+        <a href="index.html">TRY AGAIN!</a>
+        <a href="stats.html">VIEW YOUR STATS!</a>
+    </div>
+
+</body>
+
+</html>
