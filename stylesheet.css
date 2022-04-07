@@ -11,15 +11,75 @@ body{
 #header{
     background-color:blanchedalmond;
     padding:20 px;
+    width: 1500px;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(155, 134, 14);
+    padding: 10px;
 }
 
 #link{
     display:block;
-    float:left;
     background-color: red;
-    color:white;
-    width:200px;
-    height:100px;
-    text-align:center;
-    padding:50px;
+    padding:20 px;
+    width: 1500px;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(155, 134, 14);
+    padding: 10px;
+    text-align: center;
 }
+#title{
+    padding:20 px;
+    width: 1500px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+#stats{
+    padding:20 px;
+    width: 1500px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+#cereal{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.container {
+    display: block;
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px;
+    float: right;
+  }
+  
+  .btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    background-color: hsl(49, 71%, 47%);
+    border: 1px solid hsl(200, 100%, 30%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+  }
+  
+  .btn:hover {
+    border-color: black;
+  }
