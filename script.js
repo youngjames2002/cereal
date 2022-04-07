@@ -5,7 +5,7 @@ function main() {
 
 }
 // stats variables declaration
-var inventoryOpened = 0, timeRem = 0, inputCount = 0, bedroom = false, kitchen = false, shop = false; 
+var inventoryOpened = 0, timeRem = 0, inputCount = 0, bedroom = false, kitchen = false, shop = false;
 const places = [];
 
 function startAlert() {
@@ -147,6 +147,8 @@ function getOneCommand(text) {
     } else if (["inventory"].includes(verb)) {
         printInventory();
     } else if (["take", "pickup"].includes(verb)) {
+        //call multiple choice for that obj
+        multiChoice(obj);
         take_item(obj);
     } else if (["drop", "throw", "release"].includes(verb)) {
         drop_item(obj);
@@ -187,8 +189,25 @@ function statsPage() {
     if (shop) {
         places.push("Shop");
     }
-    if (places.length == 0){
+    if (places.length == 0) {
         places.push("... nowhere ... Try again there are many places to explore!");
     }
     document.getElementById('places').innerHTML = "You visited the following places: " + places;
+}
+
+function multiChoice(obj) {
+    if (obj == "cereal") {
+        cerealMulti();
+    }
+    if (obj == "milk") {
+        milkMulti();
+    }
+}
+
+function cerealMulti(){
+    document.getElementById('multiChoice').style.visibility = 'visibile;'
+}
+
+function milkMulti(){
+
 }
