@@ -370,7 +370,11 @@ function take_item(obj) {
       remove(room.contents, item);
     }
   });
-  if (!found) {
+  if (!found && obj == "spoon") {
+    console.log("matrix");
+    message.innerHTML = "Do not try and bend the spoon — that's impossible. Instead, only try to realize the truth." + "<br />" + "What truth?" + "<br />" + "There is no spoon.";
+  }
+  else if (!found) {
     message.innerHTML = "There is no " + obj + " here.";
   }
 }
