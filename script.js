@@ -142,13 +142,13 @@ function getOneCommand(text) {
 }
 
 //trying to get enter key working
-/*var input = document.getElementById("entry").value;
+var input = document.getElementById("entry").value;
 input.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         document.getElementById("SUBMIT").click();
     }
-});*/
+});
 
 function textEntered() {
     let entered = document.getElementById('entry').value;
