@@ -4,8 +4,9 @@ function main() {
     gameStart();
 
 }
-
-var inventoryOpened=0, timeRem=0, inputCount=0; // stats variables declaration
+// stats variables declaration
+var inventoryOpened = 0, timeRem = 0, inputCount = 0, bedroom = false, kitchen = false, shop = false; 
+const places = [];
 
 function startAlert() {
 
@@ -31,7 +32,7 @@ function gameStart() {
 }
 
 var myTimer;
-var duration = 5;
+var duration = 3000;
 
 function startTimer() {
     myTimer = setInterval('displayTimer()', 1000);
@@ -177,4 +178,17 @@ function statsPage() {
     document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem + ' seconds left.';
     document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened + ' times.';
     document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount + ' commands.';
+    if (bedroom) {
+        places.push("Bedroom");
+    }
+    if (kitchen) {
+        places.push("Kitchen");
+    }
+    if (shop) {
+        places.push("Shop");
+    }
+    if (places.length == 0){
+        places.push("... nowhere ... Try again there are many places to explore!");
+    }
+    document.getElementById('places').innerHTML = "You visited the following places: " + places;
 }
