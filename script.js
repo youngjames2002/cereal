@@ -5,6 +5,8 @@ function main() {
 
 }
 
+var inventoryOpened=0, timeRem=0, inputCount=0; // stats variables declaration
+
 function startAlert() {
 
     let name = document.getElementById('name');
@@ -29,7 +31,7 @@ function gameStart() {
 }
 
 var myTimer;
-var duration = 3000;
+var duration = 5;
 
 function startTimer() {
     myTimer = setInterval('displayTimer()', 1000);
@@ -51,6 +53,14 @@ function timeUp() {
     alert("Unlucky! You ran out of time! You didn't make the cereal.... very unfortunate");
     alert('Please click the links below to either view your stats or try again');
     document.getElementById('failure').style.visibility = 'visible';
+    timeRem = 0;
+}
+
+function success() {
+    alert("CONGRATS! YOU WON, the cereal was made!!");
+    alert('Please click the links below to either view your stats or try again');
+    document.getElementById('success').style.visibility;
+    timeRem = duration;
 }
 
 var character = { inventory: [], location: "bedroom" };
@@ -100,6 +110,7 @@ function move_to_room(room_name) {
 
 function printInventory() {
     console.log("invcheck");
+    inventoryOpened += 1;
     message.innerHTML = "You are carrying nothing";
     character.inventory.forEach(function (item) {
         message.innerHTML = "You are carrying:" + "&nbsp;&nbsp;&nbsp;&nbsp;" + item;
@@ -154,9 +165,16 @@ function textEntered() {
     let entered = document.getElementById('entry').value;
     let message = document.getElementById('message');
     getOneCommand(entered);
+    inputCount += 1;
     /*if (entered.includes('kitchen')){
         console.log('kitchen');
         message.innerHTML='You have made your way to the kitchen!';
         document.getElementById('kitchenPic').style.display = 'block';
     }*/
+}
+
+function statsPage() {
+    document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem + ' seconds left.';
+    document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened + ' times.';
+    document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount + ' commands.';
 }
