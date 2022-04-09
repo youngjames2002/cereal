@@ -464,7 +464,10 @@ function multiChoice(obj) {
 }
 
 function cerealMulti() {
-  var multiWindow = document.getElementById('multiChoice').style.visibility = 'visibile';
+  document.getElementById('multiChoice').style.visibility = 'visible';
+  
+  //var multiWindow = document.getElementById('multiChoice').style.visibility;
+  //multiWindow = "visible";
   console.log("visible");
   // do stuff here
 
