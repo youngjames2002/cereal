@@ -19,7 +19,9 @@ function showTextNode(textNodeIndex) {
     if (showOption(option)) {
       const button = document.createElement('button')
       button.innerText = option.text
-      button.classList.add('btn')
+      //let increment = '1';
+      button.classList.add('btn');
+      //increment++;
       button.addEventListener('click', () => selectOption(option))
       optionButtonsElement.appendChild(button)
     }
@@ -36,7 +38,7 @@ function selectOption(option) {
     return startGame()
   }
   state = Object.assign(state, option.setState)
-  showTextNode(nextTextNodeId)
+  //showTextNode(nextTextNodeId)
 }
 
 const textNodes = [
@@ -63,7 +65,7 @@ const textNodes = [
         nextText: 4
       },
       {
-        text: 'Rice Crispies',
+        text: 'Rice Krispies',
         setState: { ricecrispies: true },
         setState: { cereal: true },
         nextText: 7
@@ -465,13 +467,20 @@ function multiChoice(obj) {
 
 function cerealMulti() {
   document.getElementById('multiChoice').style.visibility = 'visible';
-  
+
   //var multiWindow = document.getElementById('multiChoice').style.visibility;
   //multiWindow = "visible";
   console.log("visible");
   // do stuff here
-
-  //document.getElementById('multiChoice').style.visibility = 'hidden;';
+  CocoPops = false;
+  while (document.getElementById('multiChoice').style.visibility = 'visible') {
+    console.log("while");
+    if (CoCoPops == true) {
+      message.innerHTML = "You take the " + "Coco Pops";
+      player.inventory.push("Coco Pops");
+      document.getElementById('multiChoice').style.visibility = 'hidden';
+    }
+  }
 }
 
 function milkMulti() {
