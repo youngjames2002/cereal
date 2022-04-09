@@ -465,16 +465,17 @@ function multiChoice(obj) {
 }
 
 function cerealMulti() {
-    document.getElementById('multiChoice').style.visibility = 'visibile;';
+  var multiWindow = document.getElementById('multiChoice').style.visibility = 'visibile';
     console.log("visible");
     // do stuff here
 
-    document.getElementById('multiChoice').style.visibility = 'hidden;';
+    //document.getElementById('multiChoice').style.visibility = 'hidden;';
 }
 
 function milkMulti() {
-    document.getElementById('multiChoice').style.visibility = 'visibile;';
+    document.getElementById('multiChoice').style.visibility = 'visibile';
+    console.log("visible");
     // do stuff here
 
-    document.getElementById('multiChoice').style.visibility = 'hidden;';
+    //document.getElementById('multiChoice').style.visibility = 'hidden;';
 }
