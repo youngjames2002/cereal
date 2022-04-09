@@ -365,6 +365,9 @@ function take_item(obj) {
         if (item.includes(obj)) {
             //checks if object is in the room
             found = true;
+            if (multiChoice(obj)) {
+
+            }
             message.innerHTML = "You take the " + item;
             player.inventory.push(item);
             remove(room.contents, item);
@@ -393,7 +396,7 @@ function Command(text) {
         printInventory();
     } else if (["take", "pickup"].includes(verb)) {
         //call multiple choice for that obj
-        multiChoice(obj);
+        //multiChoice(obj);
         take_item(obj);
     } else if (["drop", "throw", "release"].includes(verb)) {
         drop_item(obj);
@@ -449,15 +452,21 @@ function statsPage() {
 
 function multiChoice(obj) {
     if (obj == "cereal") {
-        cerealMulti();
+      console.log("cerealmult");
+      cerealMulti();
+        return true;
     }
     if (obj == "milk") {
-        milkMulti();
+      console.log("milkmult");
+      milkMulti();
+        return true;
     }
+    return false;
 }
 
 function cerealMulti() {
     document.getElementById('multiChoice').style.visibility = 'visibile;';
+    console.log("visible");
     // do stuff here
 
     document.getElementById('multiChoice').style.visibility = 'hidden;';
