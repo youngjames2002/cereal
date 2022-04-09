@@ -2,19 +2,40 @@
 <html>
 
 <head>
-    <title>THE CEREAL GAME</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <script src="script.js"></script>
+  <title>THE CEREAL GAME</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <script src="script.js"></script>
 </head>
 
-<body onload="statsPage()">
+<body onload="statsPage()" style="width:60%; margin:auto;">
+  <div id="statsBackground">
     <div id="header">
-      <center> <h1 id="title">THE CEREAL GAME</h1></center> 
-    </div id= "stats">
-    <span id="timeRem"></span>
-    <span id="inventoryOpened"></span>
-    <span id="inputCount"></span>
-    <span id="places"></span>
+      <center>
+        <h1 id="title">THE CEREAL GAME</h1>
+      </center>
+      <center>
+        <h2 id="subtitle">Statistics Page</h2>
+      </center>
+    </div>
+    <div id="stats">
+      <div id="timeDIV" class="statsBox">
+        <h2 class="statsH2">TIMER!</h2>
+        <span id="timeRem">DEFAULT TEXT</span>
+      </div>
+      <div id="inventoryDIV" class="statsBox">
+        <h2 class="statsH2">INVENTORY!!</h2>
+        <span id="inventoryOpened">DEFAULT TEXT</span>
+      </div>
+      <div id="inputDIV" class="statsBox">
+        <h2 class="statsH2">COMMANDS!</h2>
+        <span id="inputCount">DEFAULT TEXT</span>
+      </div>
+      <div id="placesDIV" class="statsBox">
+        <h2 class="statsH2">PLACES!</h2>
+        <span id="places">DEFAULT TEXT</span>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

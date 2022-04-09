@@ -1,4 +1,4 @@
-body{
+body {
     background-color: tan;
     width: 90%;
 }
@@ -8,9 +8,9 @@ body{
     text-align: center;
 } */
 
-#header{
-    background-color:blanchedalmond;
-    padding:20 px;
+#header {
+    background-color: blanchedalmond;
+    padding: 20 px;
     width: 1500px;
     margin: auto;
     width: 50%;
@@ -18,10 +18,10 @@ body{
     padding: 10px;
 }
 
-#link{
-    display:block;
+#link {
+    display: block;
     background-color: red;
-    padding:20 px;
+    padding: 20 px;
     width: 1500px;
     margin: auto;
     width: 50%;
@@ -29,8 +29,9 @@ body{
     padding: 10px;
     text-align: center;
 }
-#title{
-    padding:20 px;
+
+#title {
+    padding: 20 px;
     width: 1500px;
     margin: auto;
     width: 50%;
@@ -38,15 +39,25 @@ body{
     text-align: center;
 }
 
-#stats{
-    padding:20 px;
+#subtitle {
+    padding: 20 px;
     width: 1500px;
     margin: auto;
     width: 50%;
     padding: 10px;
     text-align: center;
 }
-#cereal{
+
+#stats {
+    padding: 20 px;
+    width: 1500px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+#cereal {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -62,24 +73,46 @@ body{
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;
     float: right;
-  }
-  
-  .btn-grid {
+}
+
+.btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin-top: 20px;
-  }
-  
-  .btn {
+}
+
+.btn {
     background-color: hsl(49, 71%, 47%);
     border: 1px solid hsl(200, 100%, 30%);
     border-radius: 5px;
     padding: 5px 10px;
     color: white;
     outline: none;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     border-color: black;
-  }
+}
+
+.statsBox {
+    display:block;
+    border: 5px solid tan;
+    width: 70%;
+    margin: auto;
+    margin-bottom:10px;
+    padding: 10px;
+    height:50%;
+    clear:both;
+}
+
+
+#statsBackground{
+    background-color: darkgoldenrod;
+    height: 90%;
+    margin-top: 10px;
+}
+
+.statsH2{
+    color:tan;
+}
