@@ -313,7 +313,12 @@ function success() {
   document.getElementById('kitchenPic').style.display = 'none';
   document.getElementById('bedroomPic').style.display = 'none';
   document.getElementById('victoryPic').style.display = 'block';
+  console.log(timeRem);
+  console.log(duration);
   timeRem = duration;
+  localStorage.setItem("durTest",timeRem);
+  console.log(localStorage.getItem("durTest"));
+  console.log(timeRem);
 }
 
 var player = { inventory: [], location: "bedroom" };
@@ -468,7 +473,7 @@ function textEntered() {
 }
 
 function statsPage() {
-  document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem.toString() + ' seconds left.';
+  document.getElementById('timeRem').innerHTML = 'You finished with ' + localStorage.getItem("durTest") + ' seconds left.';
   document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened.toString() + ' times.';
   document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount.toString() + ' commands.';
   document.getElementById('choice').innerHTML = "You chose " + choice + " as your cereal!";
