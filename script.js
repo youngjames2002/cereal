@@ -317,6 +317,9 @@ function success() {
   console.log(duration);
   timeRem = duration;
   localStorage.setItem("durTest",timeRem);
+  localStorage.setItem("invTest",inventoryOpened);
+  localStorage.setItem("inpTest",inputCount);
+  localStorage.setItem("choiceTest",choice);
   console.log(localStorage.getItem("durTest"));
   console.log(timeRem);
 }
@@ -474,9 +477,9 @@ function textEntered() {
 
 function statsPage() {
   document.getElementById('timeRem').innerHTML = 'You finished with ' + localStorage.getItem("durTest") + ' seconds left.';
-  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened.toString() + ' times.';
-  document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount.toString() + ' commands.';
-  document.getElementById('choice').innerHTML = "You chose " + choice + " as your cereal!";
+  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + localStorage.getItem(invTest) + ' times.';
+  document.getElementById('inputCount').innerHTML = 'You entered ' + localStorage.getItem(inpTest) + ' commands.';
+  document.getElementById('choice').innerHTML = "You chose " + localStorage.getItem(choiceTest) + " as your cereal!";
 }
 
 function multiChoice(obj) {
