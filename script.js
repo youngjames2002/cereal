@@ -255,8 +255,7 @@ function main() {
 
 }
 // stats variables declaration
-var inventoryOpened = 0, timeRem = 0, inputCount = 0, bedroom = false, kitchen = false, shop = false;
-const places = [];
+var inventoryOpened = 0, timeRem = 0, inputCount = 0, choice = "";
 
 function startAlert() {
 
@@ -469,22 +468,10 @@ function textEntered() {
 }
 
 function statsPage() {
-  document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem + ' seconds left.';
-  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened + ' times.';
-  document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount + ' commands.';
-  if (bedroom) {
-    places.push("Bedroom");
-  }
-  if (kitchen) {
-    places.push("Kitchen");
-  }
-  if (shop) {
-    places.push("Shop");
-  }
-  if (places.length == 0) {
-    places.push("... nowhere ... Try again there are many places to explore!");
-  }
-  document.getElementById('places').innerHTML = "You visited the following places: " + places;
+  document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem.toString() + ' seconds left.';
+  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened.toString() + ' times.';
+  document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount.toString() + ' commands.';
+  document.getElementById('choice').innerHTML = "You chose " + choice + " as your cereal!";
 }
 
 function multiChoice(obj) {
@@ -502,6 +489,7 @@ function cerealMulti() {
 
 function coco() {
   selection = "coco";
+  choice = selection;
   console.log("click");
   let cocoamount = random();
   if (cocoempty) {
@@ -524,6 +512,7 @@ function coco() {
 
 function rice() {
   selection = "rice";
+  choice = selection;
   console.log("click");
   let riceamount = random();
   if (riceempty) {
@@ -546,6 +535,7 @@ function rice() {
 
 function corn() {
   selection = "corn";
+  choice = selection;
   console.log("click");
   let cornamount = random();
   if (cornempty) {
@@ -568,6 +558,7 @@ function corn() {
 
 function krave() {
   selection = "krave";
+  choice = selection;
   console.log("click");
   let kraveamount = random();
   if (kraveempty) {
@@ -590,6 +581,7 @@ function krave() {
 
 function weet() {
   selection = "weet";
+  choice = selection;
   console.log("click");
   let weetamount = random();
   if (weetempty) {
