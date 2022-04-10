@@ -311,6 +311,9 @@ function success() {
   alert("CONGRATS! YOU WON, the cereal was made!!");
   message.innerHTML = 'Please click the links below to either view your stats or try again';
   document.getElementById('success').style.visibility;
+  document.getElementById('kitchenPic').style.display = 'none';
+  document.getElementById('bedroomPic').style.display = 'none';
+  document.getElementById('victoryPic').style.display = 'block';
   timeRem = duration;
 }
 
@@ -319,11 +322,11 @@ var player = { inventory: [], location: "bedroom" };
 var area = {
   bedroom: {
     short_description: "bedroom",
-    contents: [],
+    contents: ["spoon"],
   },
   kitchen: {
     short_description: "kitchen",
-    contents: ["bowl", "cereal", "spoon", "milk"],
+    contents: ["bowl", "cereal", "milk"],
   },
   shop: {
     short_description: "shop",
@@ -355,7 +358,14 @@ function move_to_room(room_name) {
   if (room.short_description == "kitchen") {
     console.log('kitchen');
     message.innerHTML = 'You have made your way to the kitchen!';
+    document.getElementById('bedroomPic').style.display = 'none';
     document.getElementById('kitchenPic').style.display = 'block';
+  }
+  if (room.short_description == "bedroom") {
+    console.log('bedroom');
+    message.innerHTML = 'Welcome to the bedroom.';
+    document.getElementById('kitchenPic').style.display = 'none';
+    document.getElementById('bedroomPic').style.display = 'block';
   }
 }
 
@@ -400,6 +410,9 @@ function take_item(obj) {
 function make_cereal() {
   if (player.inventory.includes("milk") && player.inventory.includes("cereal") && player.inventory.includes("bowl") && player.inventory.includes("spoon")) {
     success();
+  }
+  else {
+    message.innerHTML = "You lack the required items to make your cereal.";
   }
 }
 
