@@ -2,13 +2,14 @@ const textElement = document.getElementById('text')
 const optionButtonsElement = document.getElementById('option-buttons')
 
 let state = {}
+let selection;
 
 function startGame() {
   state = {}
-  showTextNode(1)
+  //showTextNode(1)
 }
 
-function showTextNode(textNodeIndex) {
+/*function showTextNode(textNodeIndex) {
   const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
   textElement.innerText = textNode.text
   while (optionButtonsElement.firstChild) {
@@ -38,6 +39,7 @@ function selectOption(option) {
     return startGame()
   }
   state = Object.assign(state, option.setState)
+  selection = "Coco";
   //showTextNode(nextTextNodeId)
 }
 
@@ -238,7 +240,7 @@ const textNodes = [
     ]
   },
 ]
-
+*/
 startGame()
 
 function main() {
@@ -413,13 +415,13 @@ input.addEventListener("keyup", function (event) {
   }
 });
 
-function showmulti() {
+/*function showmulti() {
   if (room.short_description == "cereal") {
     console.log('cereal');
     message.innerHTML = 'Select a cereal';
     document.getElementById('').style.display = 'block';
   }
-}
+}*/
 function textEntered() {
   let entered = document.getElementById('entry').value;
   let message = document.getElementById('message');
@@ -451,7 +453,7 @@ function statsPage() {
   document.getElementById('places').innerHTML = "You visited the following places: " + places;
 }
 
-function multiChoice(obj) {
+/*function multiChoice(obj) {
   if (obj == "cereal") {
     console.log("cerealmult");
     cerealMulti();
@@ -473,9 +475,10 @@ function cerealMulti() {
   console.log("visible");
   // do stuff here
   CocoPops = false;
-  while (document.getElementById('multiChoice').style.visibility = 'visible') {
+  while (selection == null) {
     console.log("while");
-    if (CoCoPops == true) {
+    if (selection == "Coco") {
+      console.log("if");
       message.innerHTML = "You take the " + "Coco Pops";
       player.inventory.push("Coco Pops");
       document.getElementById('multiChoice').style.visibility = 'hidden';
@@ -489,4 +492,4 @@ function milkMulti() {
   // do stuff here
 
   //document.getElementById('multiChoice').style.visibility = 'hidden;';
-}
+}*/
