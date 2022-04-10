@@ -376,9 +376,10 @@ function printInventory() {
       if (item.includes(obj)) {
         //checks if object is in the room
         found = true;
+        if (!multiChoice(obj)) {
         message.innerHTML = "You take the " + item;
         player.inventory.push(item);
-        remove(room.contents, item);
+        remove(room.contents, item);}
       }
     });
     if (!found && obj == "spoon") {
@@ -467,7 +468,7 @@ function printInventory() {
     document.getElementById('places').innerHTML = "You visited the following places: " + places;
   }
 
-/*function multiChoice(obj) {
+function multiChoice(obj) {
   if (obj == "cereal") {
     console.log("cerealmult");
     cerealMulti();
@@ -483,21 +484,7 @@ function printInventory() {
 
 function cerealMulti() {
   document.getElementById('multiChoice').style.visibility = 'visible';
-
-  //var multiWindow = document.getElementById('multiChoice').style.visibility;
-  //multiWindow = "visible";
   console.log("visible");
-  // do stuff here
-  CocoPops = false;
-  while (selection == null) {
-    console.log("while");
-    if (selection == "Coco") {
-      console.log("if");
-      message.innerHTML = "You take the " + "Coco Pops";
-      player.inventory.push("Coco Pops");
-      document.getElementById('multiChoice').style.visibility = 'hidden';
-    }
-  }
 }
 
 function milkMulti() {
@@ -506,4 +493,44 @@ function milkMulti() {
   // do stuff here
 
   //document.getElementById('multiChoice').style.visibility = 'hidden;';
-}*/
+}
+
+function coco() {
+  selection = "coco";
+  console.log("click");
+      message.innerHTML = "You take the " + "Coco Pops";
+      player.inventory.push("cereal");
+      document.getElementById('multiChoice').style.visibility = 'hidden';
+}
+
+function rice() {
+  selection = "rice";
+  console.log("click");
+      message.innerHTML = "You take the " + "Rice Krispies";
+      player.inventory.push("cereal");
+      document.getElementById('multiChoice').style.visibility = 'hidden';
+}
+
+function corn() {
+  selection = "corn";
+  console.log("click");
+      message.innerHTML = "You take the " + "Coco Pops";
+      player.inventory.push("cereal");
+      document.getElementById('multiChoice').style.visibility = 'hidden';
+}
+
+function krave() {
+  selection = "krave";
+  console.log("click");
+      message.innerHTML = "You take the " + "Coco Pops";
+      player.inventory.push("cereal");
+      document.getElementById('multiChoice').style.visibility = 'hidden';
+}
+
+function weet() {
+  selection = "weet";
+  console.log("click");
+      message.innerHTML = "You take the " + "Weet-a-Bix";
+      player.inventory.push("cereal");
+      document.getElementById('multiChoice').style.visibility = 'hidden';
+}

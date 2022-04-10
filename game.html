@@ -3,11 +3,11 @@
 
 <head>
     <title>THE CEREAL GAME</title>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="stylesheet.css" rel="stylesheet">
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="stylesheet.css" rel="stylesheet">
+    <script defer src="script.js"></script>
 </head>
 
 <body onload="gameStart()">
@@ -23,25 +23,29 @@
             <input type="text" id="entry" name="entry">
             <input type="button" value="SUBMIT" onclick="textEntered()">
         </form>
+        <div class="wrapper" id="multiChoice" style="visibility:hidden;">
+            <button id="b1" class="btn" onclick="coco()">
+                CoCo Pops</button>
+            <button id="b2" class="btn">
+                Rice Krispies</button>
+            <button id="b3" class="btn">
+                Corn Flakes</button>
+            <button id="b4" class="btn">
+                Krave</button>
+            <button id="b5" class="btn">
+                Weet-a-bix</button>
+        </div>
         <img src="kitchen.jpg" alt="kitchen" style="display:none;" width="50%" id="kitchenPic">
     </div>
     <div id="failure" style="visibility:hidden;">
         <a href="index.html">TRY AGAIN!</a>
         <a href="stats.html">VIEW YOUR STATS!</a>
     </div>
-    <div id="success" >
+    <div id="success">
         <a href="index.html">TRY AGAIN!</a>
         <a href="stats.html">VIEW YOUR STATS!</a>
     </div>
-    <div class="multiChoice" id="multiChoice" style="visibility:hidden;">
-        <div id="text">Text</div>
-        <div id="option-buttons" class="btn-grid">
-          <button class="btn">Option 1</button>
-          <button class="btn">Option 2</button>
-          <button class="btn">Option 3</button>
-          <button class="btn">Option 4</button>
-        </div>
-      </div>
+    </div>
 </body>
 
 </html>
