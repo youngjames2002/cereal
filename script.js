@@ -504,7 +504,7 @@ function coco() {
   if (!cocoempty) {
     message.innerHTML = "You take the " + "Coco Pops";
     player.inventory.push("cereal");
-    remove(room.contents, item);
+    remove(room.contents, "cereal");
     document.getElementById('multiChoice').style.visibility = 'hidden';
   }
 }
@@ -526,7 +526,7 @@ function rice() {
   if (!riceempty) {
     message.innerHTML = "You take the " + "Rice Krispies";
     player.inventory.push("cereal");
-    remove(room.contents, item);
+    remove(room.contents, "cereal");
     document.getElementById('multiChoice').style.visibility = 'hidden';
   }
 }
@@ -548,7 +548,7 @@ function corn() {
   if (!cornempty) {
     message.innerHTML = "You take the " + "Corn Flakes";
     player.inventory.push("cereal");
-    remove(room.contents, item);
+    remove(room.contents, "cereal");
     document.getElementById('multiChoice').style.visibility = 'hidden';
   }
 }
@@ -570,7 +570,7 @@ function krave() {
   if (!kraveempty) {
     message.innerHTML = "You take the " + "Krave";
     player.inventory.push("cereal");
-    remove(room.contents, item);
+    remove(room.contents, "cereal");
     document.getElementById('multiChoice').style.visibility = 'hidden';
   }
 }
@@ -592,7 +592,7 @@ function weet() {
   if (!weetempty) {
   message.innerHTML = "You take the " + "Weet-a-Bix";
   player.inventory.push("cereal");
-  remove(room.contents, item);
+  remove(room.contents, "cereal");
   document.getElementById('multiChoice').style.visibility = 'hidden';
 }}
 
