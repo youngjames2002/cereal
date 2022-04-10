@@ -3,7 +3,8 @@ const optionButtonsElement = document.getElementById('option-buttons')
 
 let state = {}
 let selection;
-
+var sub = "";
+let cocoempty = false;
 function startGame() {
   state = {}
   //showTextNode(1)
@@ -370,103 +371,104 @@ function printInventory() {
   }
 }
 
-  function take_item(obj) {
-    let found = false;
-    room.contents.forEach(function (item) {
-      if (item.includes(obj)) {
-        //checks if object is in the room
-        found = true;
-        if (!multiChoice(obj)) {
+function take_item(obj) {
+  let found = false;
+  room.contents.forEach(function (item) {
+    if (item.includes(obj)) {
+      //checks if object is in the room
+      found = true;
+      if (!multiChoice(obj)) {
         message.innerHTML = "You take the " + item;
         player.inventory.push(item);
-        remove(room.contents, item);}
+        remove(room.contents, item);
       }
-    });
-    if (!found && obj == "spoon") {
-      console.log("matrix");
-      message.innerHTML = "Do not try and bend the spoon — that's impossible. Instead, only try to realize the truth." + "<br />" + "What truth?" + "<br />" + "There is no spoon.";
-    }
-    else if (!found) {
-      message.innerHTML = "There is no " + obj + " here.";
-    }
-  }
-
-  function make_cereal() {
-    if (player.inventory.includes("milk") && player.inventory.includes("cereal") && player.inventory.includes("bowl") && player.inventory.includes("spoon")) {
-      success();
-    }
-  }
-
-  room = area[player.location];
-
-  function Command(text) {
-    room = area[player.location];
-    command = command_split(text.toLowerCase());
-    verb = command[0];
-    obj = command[1];
-    console.log("verb: " + verb + ", object: " + obj);
-    if (["go"].includes(verb)) {
-      move_to_room(obj);
-    } else if (["inventory"].includes(verb)) {
-      printInventory();
-    } else if (["take", "pickup"].includes(verb)) {
-      //call multiple choice for that obj
-      //multiChoice(obj);
-      take_item(obj);
-    } else if (["drop", "throw", "release"].includes(verb)) {
-      drop_item(obj);
-    } else if (["make", "create"].includes(verb) && obj == "cereal") {
-      make_cereal();
-    }
-
-  }
-
-  //trying to get enter key working
-  var input = document.getElementById("entry").value;
-  input.addEventListener("keyup", function (event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      document.getElementById("SUBMIT").click();
     }
   });
+  if (!found && obj == "spoon") {
+    console.log("matrix");
+    message.innerHTML = "Do not try and bend the spoon — that's impossible. Instead, only try to realize the truth." + "<br />" + "What truth?" + "<br />" + "There is no spoon.";
+  }
+  else if (!found) {
+    message.innerHTML = "There is no " + obj + " here.";
+  }
+}
 
-  /*function showmulti() {
-    if (room.short_description == "cereal") {
-      console.log('cereal');
-      message.innerHTML = 'Select a cereal';
-      document.getElementById('').style.display = 'block';
-    }
+function make_cereal() {
+  if (player.inventory.includes("milk") && player.inventory.includes("cereal") && player.inventory.includes("bowl") && player.inventory.includes("spoon")) {
+    success();
+  }
+}
+
+room = area[player.location];
+
+function Command(text) {
+  room = area[player.location];
+  command = command_split(text.toLowerCase());
+  verb = command[0];
+  obj = command[1];
+  console.log("verb: " + verb + ", object: " + obj);
+  if (["go"].includes(verb)) {
+    move_to_room(obj);
+  } else if (["inventory"].includes(verb)) {
+    printInventory();
+  } else if (["take", "pickup"].includes(verb)) {
+    //call multiple choice for that obj
+    //multiChoice(obj);
+    take_item(obj);
+  } else if (["drop", "throw", "release"].includes(verb)) {
+    drop_item(obj);
+  } else if (["make", "create"].includes(verb) && obj == "cereal") {
+    make_cereal();
+  }
+
+}
+
+//trying to get enter key working
+var input = document.getElementById("entry").value;
+input.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("SUBMIT").click();
+  }
+});
+
+/*function showmulti() {
+  if (room.short_description == "cereal") {
+    console.log('cereal');
+    message.innerHTML = 'Select a cereal';
+    document.getElementById('').style.display = 'block';
+  }
+}*/
+function textEntered() {
+  let entered = document.getElementById('entry').value;
+  let message = document.getElementById('message');
+  Command(entered);
+  inputCount += 1;
+  /*if (entered.includes('kitchen')){
+      console.log('kitchen');
+      message.innerHTML='You have made your way to the kitchen!';
+      document.getElementById('kitchenPic').style.display = 'block';
   }*/
-  function textEntered() {
-    let entered = document.getElementById('entry').value;
-    let message = document.getElementById('message');
-    Command(entered);
-    inputCount += 1;
-    /*if (entered.includes('kitchen')){
-        console.log('kitchen');
-        message.innerHTML='You have made your way to the kitchen!';
-        document.getElementById('kitchenPic').style.display = 'block';
-    }*/
-  }
+}
 
-  function statsPage() {
-    document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem + ' seconds left.';
-    document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened + ' times.';
-    document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount + ' commands.';
-    if (bedroom) {
-      places.push("Bedroom");
-    }
-    if (kitchen) {
-      places.push("Kitchen");
-    }
-    if (shop) {
-      places.push("Shop");
-    }
-    if (places.length == 0) {
-      places.push("... nowhere ... Try again there are many places to explore!");
-    }
-    document.getElementById('places').innerHTML = "You visited the following places: " + places;
+function statsPage() {
+  document.getElementById('timeRem').innerHTML = 'You finished with ' + timeRem + ' seconds left.';
+  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + inventoryOpened + ' times.';
+  document.getElementById('inputCount').innerHTML = 'You entered ' + inputCount + ' commands.';
+  if (bedroom) {
+    places.push("Bedroom");
   }
+  if (kitchen) {
+    places.push("Kitchen");
+  }
+  if (shop) {
+    places.push("Shop");
+  }
+  if (places.length == 0) {
+    places.push("... nowhere ... Try again there are many places to explore!");
+  }
+  document.getElementById('places').innerHTML = "You visited the following places: " + places;
+}
 
 function multiChoice(obj) {
   if (obj == "cereal") {
@@ -474,12 +476,6 @@ function multiChoice(obj) {
     cerealMulti();
     return true;
   }
-  if (obj == "milk") {
-    console.log("milkmult");
-    milkMulti();
-    return true;
-  }
-  return false;
 }
 
 function cerealMulti() {
@@ -487,50 +483,84 @@ function cerealMulti() {
   console.log("visible");
 }
 
-function milkMulti() {
-  document.getElementById('multiChoice').style.visibility = 'visibile';
-  console.log("visible");
-  // do stuff here
-
-  //document.getElementById('multiChoice').style.visibility = 'hidden;';
-}
-
 function coco() {
   selection = "coco";
+  let cocoamount = random();
   console.log("click");
-      message.innerHTML = "You take the " + "Coco Pops";
-      player.inventory.push("cereal");
-      document.getElementById('multiChoice').style.visibility = 'hidden';
+  if (cocoempty) {
+    message.innerHTML = "Cereal box only " + cocoamount + " full!";
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if ((Math.floor(Math.random() * 11) < 6)) {
+    console.log("empty");
+    message.innerHTML = "Cereal box only " + cocoamount + " full!";
+    cocoempty = true;
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if (!cocoempty) {
+    message.innerHTML = "You take the " + "Coco Pops";
+    player.inventory.push("cereal");
+    remove(room.contents, item);
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
 }
 
 function rice() {
   selection = "rice";
   console.log("click");
-      message.innerHTML = "You take the " + "Rice Krispies";
-      player.inventory.push("cereal");
-      document.getElementById('multiChoice').style.visibility = 'hidden';
+  message.innerHTML = "You take the " + "Rice Krispies";
+  player.inventory.push("cereal");
+  remove(room.contents, item);
+  document.getElementById('multiChoice').style.visibility = 'hidden';
 }
 
 function corn() {
   selection = "corn";
   console.log("click");
-      message.innerHTML = "You take the " + "Corn Flakes";
-      player.inventory.push("cereal");
-      document.getElementById('multiChoice').style.visibility = 'hidden';
+  message.innerHTML = "You take the " + "Corn Flakes";
+  player.inventory.push("cereal");
+  remove(room.contents, item);
+  document.getElementById('multiChoice').style.visibility = 'hidden';
 }
 
 function krave() {
   selection = "krave";
   console.log("click");
-      message.innerHTML = "You take the " + "Krave";
-      player.inventory.push("cereal");
-      document.getElementById('multiChoice').style.visibility = 'hidden';
+  message.innerHTML = "You take the " + "Krave";
+  player.inventory.push("cereal");
+  remove(room.contents, item);
+  document.getElementById('multiChoice').style.visibility = 'hidden';
 }
 
 function weet() {
   selection = "weet";
   console.log("click");
-      message.innerHTML = "You take the " + "Weet-a-Bix";
-      player.inventory.push("cereal");
-      document.getElementById('multiChoice').style.visibility = 'hidden';
+  message.innerHTML = "You take the " + "Weet-a-Bix";
+  player.inventory.push("cereal");
+  remove(room.contents, item);
+  document.getElementById('multiChoice').style.visibility = 'hidden';
+}
+
+
+function random() {
+  switch (Math.floor(Math.random() * 6)) {
+    case 0:
+      sub = Math.floor(Math.random() * 10) + "%";
+      return "▱▱▱▱▱▱▱▱▱▱ " + sub;
+    case 1:
+      sub = Math.floor(Math.random() * 10) + "%";
+      return "▰▱▱▱▱▱▱▱▱▱ 1" + sub;
+    case 2:
+      sub = Math.floor(Math.random() * 10) + "%";
+      return "▰▰▱▱▱▱▱▱▱▱ 2" + sub;
+    case 3:
+      sub = Math.floor(Math.random() * 10) + "%";
+      return "▰▰▰▱▱▱▱▱▱▱ 3" + sub;
+    case 4:
+      sub = Math.floor(Math.random() * 10) + "%";
+      return "▰▰▰▰▱▱▱▱▱▱ 4" + sub;
+    case 5:
+      sub = Math.floor(Math.random() * 10) + "%";
+      return "▰▰▰▰▰▱▱▱▱▱ 5" + sub;
+  }
 }
