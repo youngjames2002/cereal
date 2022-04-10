@@ -5,6 +5,10 @@ let state = {}
 let selection;
 var sub = "";
 let cocoempty = false;
+let riceempty = false;
+let cornempty = false;
+let kraveempty = false;
+let weetempty = false;
 function startGame() {
   state = {}
   //showTextNode(1)
@@ -485,8 +489,8 @@ function cerealMulti() {
 
 function coco() {
   selection = "coco";
-  let cocoamount = random();
   console.log("click");
+  let cocoamount = random();
   if (cocoempty) {
     message.innerHTML = "Cereal box only " + cocoamount + " full!";
     document.getElementById('multiChoice').style.visibility = 'hidden';
@@ -508,38 +512,89 @@ function coco() {
 function rice() {
   selection = "rice";
   console.log("click");
-  message.innerHTML = "You take the " + "Rice Krispies";
-  player.inventory.push("cereal");
-  remove(room.contents, item);
-  document.getElementById('multiChoice').style.visibility = 'hidden';
+  let riceamount = random();
+  if (riceempty) {
+    message.innerHTML = "Cereal box only " + riceamount + " full!";
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if ((Math.floor(Math.random() * 11) < 6)) {
+    console.log("empty");
+    message.innerHTML = "Cereal box only " + riceamount + " full!";
+    cocoempty = true;
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if (!riceempty) {
+    message.innerHTML = "You take the " + "Rice Krispies";
+    player.inventory.push("cereal");
+    remove(room.contents, item);
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
 }
 
 function corn() {
   selection = "corn";
   console.log("click");
-  message.innerHTML = "You take the " + "Corn Flakes";
-  player.inventory.push("cereal");
-  remove(room.contents, item);
-  document.getElementById('multiChoice').style.visibility = 'hidden';
+  let cornamount = random();
+  if (cornempty) {
+    message.innerHTML = "Cereal box only " + cornamount + " full!";
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if ((Math.floor(Math.random() * 11) < 6)) {
+    console.log("empty");
+    message.innerHTML = "Cereal box only " + cornamount + " full!";
+    cocoempty = true;
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if (!cornempty) {
+    message.innerHTML = "You take the " + "Corn Flakes";
+    player.inventory.push("cereal");
+    remove(room.contents, item);
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
 }
 
 function krave() {
   selection = "krave";
   console.log("click");
-  message.innerHTML = "You take the " + "Krave";
-  player.inventory.push("cereal");
-  remove(room.contents, item);
-  document.getElementById('multiChoice').style.visibility = 'hidden';
+  let kraveamount = random();
+  if (kraveempty) {
+    message.innerHTML = "Cereal box only " + kraveamount + " full!";
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if ((Math.floor(Math.random() * 11) < 6)) {
+    console.log("empty");
+    message.innerHTML = "Cereal box only " + kraveamount + " full!";
+    cocoempty = true;
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if (!kraveempty) {
+    message.innerHTML = "You take the " + "Krave";
+    player.inventory.push("cereal");
+    remove(room.contents, item);
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
 }
 
 function weet() {
   selection = "weet";
   console.log("click");
+  let weetamount = random();
+  if (weetempty) {
+    message.innerHTML = "Cereal box only " + weetamount + " full!";
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if ((Math.floor(Math.random() * 11) < 6)) {
+    console.log("empty");
+    message.innerHTML = "Cereal box only " + weetamount + " full!";
+    cocoempty = true;
+    document.getElementById('multiChoice').style.visibility = 'hidden';
+  }
+  if (!weetempty) {
   message.innerHTML = "You take the " + "Weet-a-Bix";
   player.inventory.push("cereal");
   remove(room.contents, item);
   document.getElementById('multiChoice').style.visibility = 'hidden';
-}
+}}
 
 
 function random() {
