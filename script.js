@@ -477,9 +477,9 @@ function textEntered() {
 
 function statsPage() {
   document.getElementById('timeRem').innerHTML = 'You finished with ' + localStorage.getItem("durTest") + ' seconds left.';
-  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + localStorage.getItem(invTest) + ' times.';
-  document.getElementById('inputCount').innerHTML = 'You entered ' + localStorage.getItem(inpTest) + ' commands.';
-  document.getElementById('choice').innerHTML = "You chose " + localStorage.getItem(choiceTest) + " as your cereal!";
+  document.getElementById('inventoryOpened').innerHTML = 'You opened your inventory ' + localStorage.getItem("invTest") + ' times.';
+  document.getElementById('inputCount').innerHTML = 'You entered ' + localStorage.getItem("inpTest") + ' commands.';
+  document.getElementById('choice').innerHTML = "You chose " + localStorage.getItem("choiceTest") + " as your cereal!";
 }
 
 function multiChoice(obj) {
