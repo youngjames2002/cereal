@@ -514,7 +514,7 @@ function rice() {
 function corn() {
   selection = "corn";
   console.log("click");
-      message.innerHTML = "You take the " + "Coco Pops";
+      message.innerHTML = "You take the " + "Corn Flakes";
       player.inventory.push("cereal");
       document.getElementById('multiChoice').style.visibility = 'hidden';
 }
@@ -522,7 +522,7 @@ function corn() {
 function krave() {
   selection = "krave";
   console.log("click");
-      message.innerHTML = "You take the " + "Coco Pops";
+      message.innerHTML = "You take the " + "Krave";
       player.inventory.push("cereal");
       document.getElementById('multiChoice').style.visibility = 'hidden';
 }
